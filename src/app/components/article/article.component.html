@@ -1,0 +1,15 @@
+<article class='article'>
+    <h1 class='title'>{{article.title}}</h1>
+    <ul class='details-list'>
+      <li class='details-item'>{{article.tag}}</li>
+      <li class='details-item'>Added by <span class='details-span'>{{article.author}}</span></li>
+      <li class='details-item'>{{article.date}}</li>
+    </ul>
+    <div class='edit-container'>
+      <button class='edit-button'>Edit</button>
+      <p class='edit-button'>|</p>
+      <button class='edit-button'>Delete</button>
+    </div>
+    <img class='image' src='{{article.imgUrl}}' alt=""/>
+    <p class='text'>{{article.content}}</p>    
+</article>

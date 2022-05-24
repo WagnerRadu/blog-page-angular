@@ -1,0 +1,15 @@
+<div *ngIf="!isLoading; then thenBlock else elseBlock"></div>
+
+<ng-template #thenBlock>
+  <div class="container">
+    <ng-container *ngFor="let article of articleList">
+        <app-article
+          [article]="article"
+          (fetchArticles)="fetchArticles()"></app-article>
+    </ng-container>
+  </div>
+</ng-template>
+
+<ng-template #elseBlock>
+  <div>Loading...</div>
+</ng-template>
