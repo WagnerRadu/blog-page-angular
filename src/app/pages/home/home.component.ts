@@ -39,6 +39,28 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  resetSelectedArticle() {
+    this.selectedArticle = {
+      title: "",
+      tag: "",
+      author: "",
+      date: "",
+      imgUrl: "",
+      saying: "",
+      content: "",
+      id: 0
+    }
+  }
+
+  toggleModal(modalState: boolean) {
+    this.isModalOpen = modalState;
+  }
+
+  selectArticle(selectedArticle: IArticle) {
+    this.selectedArticle = selectedArticle;
+    this.toggleModal(true);
+  }
+
   ngOnDestroy(): void {
     this.articlesSubscription.unsubscribe();
   }

@@ -1,0 +1,20 @@
+<div class="modal-bg" [ngClass]="{'modal-active': isModalOpen}">
+    <div class="modal">
+        <h1 *ngIf="selectedArticle.id === 0" class="title modal-title">Add article</h1>
+        <h1 *ngIf="selectedArticle.id !== 0" class="title modal-title">Edit article</h1>
+        <div class="form-container" [formGroup]="articleForm">
+            <input class="modal-form" type="text" placeholder="Please enter title" formControlName="title">
+            <input class="modal-form" type="text" placeholder="Please enter tag" formControlName="tag">
+            <input class="modal-form" type="text" placeholder="Please enter author" formControlName="author">
+            <input class="modal-form" type="text" placeholder="Please enter date" formControlName="date">
+            <input class="modal-form" type="text" placeholder="Please enter image url" formControlName="imgUrl">
+            <input class="modal-form" type="text" placeholder="Please enter saying" formControlName="saying">
+            <textarea class="modal-form content-form" placeholder="Please enter content" formControlName="content"></textarea>
+        </div>
+        <div class="modal-button-container">
+            <button  class="button" id="closeModalBtn" (click)="closeModal()" >CANCEL</button>
+            <button *ngIf="selectedArticle.id === 0" class="button bg-pink" (click)="saveArticle()">SAVE</button>
+            <button *ngIf="selectedArticle.id !== 0" class="button bg-pink" (click)="updateArticle()">UPDATE</button>
+        </div>
+    </div>
+</div>

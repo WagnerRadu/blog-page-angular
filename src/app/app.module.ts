@@ -9,6 +9,7 @@ import { ArticleComponent } from './components/article/article.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     DetailsComponent,
     NotFoundComponent,
     ArticleComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
