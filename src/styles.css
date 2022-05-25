@@ -51,7 +51,7 @@
 .button-container--centered {
     display: flex;
     justify-content: center;
-    margin: 10px 0 -90px 0;
+    margin: 140px 0 100px 0;
 }
 
 .button {
@@ -249,7 +249,7 @@
 .saying {
     font-family: var(--title-font);
     font-size: var(--h3-font-size);
-    font-style: italic; /* too lazy to  */
+    font-style: italic;
     color: var(--black);
     line-height: 30px;
     box-sizing: border-box;

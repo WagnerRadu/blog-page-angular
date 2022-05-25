@@ -11,5 +11,8 @@
       <button class='edit-button' (click)="deleteArticle()">Delete</button>
     </div>
     <img class='image' src='{{article.imgUrl}}' alt=""/>
-    <p class='text'>{{article.content}}</p>    
-</article>
+    <p class='text'>{{article.content.slice(0, 1000)}}</p>
+    <div class="button-container--centered">
+      <button class="button" routerLink="{{'/details/' + article.id}}">READ MORE</button>    
+    </div>
+  </article>

@@ -25,8 +25,8 @@
       <app-article [article]="article" (fetchArticles)="fetchArticles()" (selectArticle)="selectArticle($event)"></app-article>
     </ng-container>
     <footer class="footer">
-      <button class="footer-button" (click)="prevArticles()">previous</button>
-      <button class="footer-button" (click)="nextArticles()">next</button>
+      <button [disabled]="startIndex === 0" class="footer-button" (click)="prevArticles()">previous</button>
+      <button [disabled]="endIndex >= articleList.length" class="footer-button" (click)="nextArticles()">next</button>
     </footer>
     <app-modal [isModalOpen]="isModalOpen" [selectedArticle]="selectedArticle" (toggleModal)="toggleModal($event)"
       (resetSelectedArticle)="resetSelectedArticle()" (fetchArticles)="fetchArticles()">

@@ -1,1 +1,40 @@
-<p>details works!</p>
+<div *ngIf="!isLoading; then thenBlock else elseBlock"></div>
+
+<ng-template #thenBlock>
+    <div class="container">
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="" class="nav-link">TRAVEL UPDATES</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">REVIEWS</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">ABOUT</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">CONTACT</a>
+                </li>
+            </ul>
+        </nav>
+        <h1 class='title'>{{article.title}}</h1>
+        <ul class='details-list'>
+            <li class='details-item'>{{article.tag}}</li>
+            <li class='details-item'>Added by <span class='details-span'>{{article.author}}</span></li>
+            <li class='details-item'>{{article.date}}</li>
+        </ul>
+        <img class='image' src='{{article.imgUrl}}' alt=""/>
+        <p class='text'>{{text1}}</p>
+        <p class="saying">{{article.saying}}</p>
+        <p class='text'>{{text2}}</p>
+        <footer class="footer">
+            <button [disabled]="article.id === 1" class="footer-button" routerLink="{{'/details/' + (article.id - 1)}}">previous</button>
+            <button class="footer-button" routerLink="{{'/details/' + (article.id + 1)}}">next</button>
+        </footer>
+    </div>
+</ng-template>
+
+<ng-template #elseBlock>
+    <div>Loading...</div>
+</ng-template>
