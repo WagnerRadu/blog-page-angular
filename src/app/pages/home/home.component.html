@@ -21,9 +21,13 @@
     <div class="button-container">
       <button class="button" id="addButton" (click)="toggleModal(true)">+ ADD ARTICLE</button>
     </div>
-    <ng-container *ngFor="let article of articleList">
+    <ng-container *ngFor="let article of filteredArticleList">
       <app-article [article]="article" (fetchArticles)="fetchArticles()" (selectArticle)="selectArticle($event)"></app-article>
     </ng-container>
+    <footer class="footer">
+      <button class="footer-button" (click)="prevArticles()">previous</button>
+      <button class="footer-button" (click)="nextArticles()">next</button>
+    </footer>
     <app-modal [isModalOpen]="isModalOpen" [selectedArticle]="selectedArticle" (toggleModal)="toggleModal($event)"
       (resetSelectedArticle)="resetSelectedArticle()" (fetchArticles)="fetchArticles()">
     </app-modal>

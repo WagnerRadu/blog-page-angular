@@ -11,9 +11,13 @@ import { ArticlesService } from 'src/app/services/articles.service';
 export class HomeComponent implements OnInit {
 
   articleList: IArticle[] = [];
+  filteredArticleList:IArticle[] = [];
   isLoading = false;
   articlesSubscription = new Subscription();
   isModalOpen = false;
+  numberOfArticlesDisplayed = 3
+  startIndex = 0;
+  endIndex = 0 + this.numberOfArticlesDisplayed - 1;
   selectedArticle: IArticle = {
     title: "",
     tag: "",
@@ -35,6 +39,7 @@ export class HomeComponent implements OnInit {
     this.isLoading = false;
     this.articlesSubscription = this.articleService.getArticles().subscribe((response: IArticle[]) => {
       this.articleList = response;
+      this.filteredArticleList = response.filter((d, i) =>  i >= this.startIndex && i <= this.endIndex )
       this.isLoading = false;
     });
   }
@@ -60,6 +65,20 @@ export class HomeComponent implements OnInit {
     this.selectedArticle = selectedArticle;
     this.toggleModal(true);
   }
+
+  prevArticles() {
+    this.startIndex = this.startIndex - this.numberOfArticlesDisplayed;
+    this.endIndex = this.endIndex - this.numberOfArticlesDisplayed;
+    this.filteredArticleList = this.articleList.filter((d, i) =>  i >= this.startIndex && i <= this.endIndex )
+
+  }
+
+  nextArticles() {
+    this.startIndex = this.startIndex + this.numberOfArticlesDisplayed;
+    this.endIndex = this.endIndex + this.numberOfArticlesDisplayed;
+    this.filteredArticleList = this.articleList.filter((d, i) =>  i >= this.startIndex && i <= this.endIndex )
+  }
+
 
   ngOnDestroy(): void {
     this.articlesSubscription.unsubscribe();
